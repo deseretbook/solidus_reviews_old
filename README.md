@@ -1,7 +1,6 @@
 # Reviews
 
-[![Build Status](https://travis-ci.org/spree-contrib/spree_reviews.svg?branch=master)](https://travis-ci.org/spree-contrib/spree_reviews)
-[![Code Climate](https://codeclimate.com/github/spree-contrib/spree_reviews/badges/gpa.svg)](https://codeclimate.com/github/spree-contrib/spree_reviews)
+#TODO Add CIRCLE
 
 Straightforward review/rating functionality.
 
@@ -11,7 +10,7 @@ Straightforward review/rating functionality.
 
 Add the following to your `Gemfile` to install from git:
 ```ruby
-gem 'spree_reviews', github: 'spree-contrib/spree_reviews', branch: 'master'
+gem 'solidus_reviews', github: 'deseretbook/solidus_reviews'
 ```
 Now bundle up with:
 
@@ -19,7 +18,7 @@ Now bundle up with:
 
 Next, run the rake task that copies the necessary migrations and assets to your project:
 
-    bundle exec rails g spree_reviews:install
+    bundle exec rails g solidus_reviews:install
 
 And finish with a migrate:
 
@@ -67,16 +66,4 @@ Some points which might need modification in future:
    be counted when the review is approved.
 
 ---
-
-## Contributing
-
-See corresponding [contributing guidelines][1].
-
----
-
-Copyright (c) 2009-2015 [Spree Commerce][2] and [contributors][3], released under the [New BSD License][4]
-
-[1]: https://github.com/spree-contrib/spree_reviews/blob/master/CONTRIBUTING.md
-[2]: https://github.com/spree
-[3]: https://github.com/spree-contrib/spree_reviews/graphs/contributors
-[4]: https://github.com/spree-contrib/spree_reviews/blob/master/LICENSE.md
+Copyright (c) 2016 Deseret Book, released under the New BSD License
