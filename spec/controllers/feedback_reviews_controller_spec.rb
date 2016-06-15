@@ -8,8 +8,8 @@ RSpec.describe Spree::FeedbackReviewsController, type: :controller do
       user_id: user.id,
       feedback_review: {
         rating: '4 stars',
-        comment: 'some comment'
-      }
+        comment: 'some comment',
+      },
     }
   end
 
@@ -30,7 +30,7 @@ RSpec.describe Spree::FeedbackReviewsController, type: :controller do
           format: :js,
           feedback_review: {
             comment: comment,
-            rating: rating
+            rating: rating,
           }
         )
         expect(response.status).to be(200)

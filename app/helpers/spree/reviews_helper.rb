@@ -4,7 +4,7 @@ module Spree::ReviewsHelper
   end
 
   def mk_stars(m)
-    (1..5).collect { |n| n <= m ? star('lit') : star('unlit') }.join
+    (1..5).collect {|n| n <= m ? star('lit') : star('unlit') }.join
   end
 
   def txt_stars(n, show_out_of = true)

@@ -1,5 +1,4 @@
 RSpec.describe Spree::Review, type: :model do
-
   context 'validations' do
     it 'validates by default' do
       expect(build(:review)).to be_valid
@@ -112,13 +111,13 @@ RSpec.describe Spree::Review, type: :model do
         expected = [
           approved_review_2,
           approved_review_3,
-          approved_review_1
+          approved_review_1,
         ]
         expect(described_class.approved.to_a).to match_array expected
 
         expected = [
           unapproved_review_2,
-          unapproved_review_1
+          unapproved_review_1,
         ]
         expect(described_class.not_approved.to_a).to match_array expected
 
@@ -128,7 +127,7 @@ RSpec.describe Spree::Review, type: :model do
           approved_review_2,
           approved_review_3,
           unapproved_review_1,
-          approved_review_1
+          approved_review_1,
         ]
         expect(described_class.default_approval_filter.to_a).to match_array expected
 
@@ -136,7 +135,7 @@ RSpec.describe Spree::Review, type: :model do
         expected = [
           approved_review_2,
           approved_review_3,
-          approved_review_1
+          approved_review_1,
         ]
         expect(Spree::Review.default_approval_filter.to_a).to match_array expected
       end

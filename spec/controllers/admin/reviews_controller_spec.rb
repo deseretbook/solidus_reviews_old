@@ -13,7 +13,7 @@ RSpec.describe Spree::Admin::ReviewsController, type: :controller do
     it 'lists reviews' do
       reviews = [
         create(:review, product: product),
-        create(:review, product: product)
+        create(:review, product: product),
       ]
       spree_get :index, product_id: product.slug
       expect(assigns[:reviews]).to match_array(reviews)

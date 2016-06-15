@@ -26,7 +26,7 @@ RSpec.describe Spree::ReviewsController, type: :controller do
       it 'lists approved reviews' do
         approved_reviews = [
           create(:review, :approved, product: product),
-          create(:review, :approved, product: product)
+          create(:review, :approved, product: product),
         ]
         spree_get :index, product_id: product.slug
         expect(assigns[:approved_reviews]).to match_array(approved_reviews)
@@ -105,7 +105,7 @@ RSpec.describe Spree::ReviewsController, type: :controller do
 
     it 'sets the current spree user as reviews user' do
       spree_post :create, review_params
-      review_params[:review].merge!(user_id: user.id)
+      review_params[:review][:user_id] = user.id
       assigns[:review][:user_id] = user.id
       expect(assigns[:review][:user_id]).to eq(user.id)
     end
@@ -119,7 +119,7 @@ RSpec.describe Spree::ReviewsController, type: :controller do
 
       it 'does not create a review' do
         expect(Spree::Review.count).to be(0)
-        review_params[:review].merge!(rating: 'not_a_number')
+        review_params[:review][:rating] = 'not_a_number'
         spree_post :create, review_params
         expect(Spree::Review.count).to be(0)
       end

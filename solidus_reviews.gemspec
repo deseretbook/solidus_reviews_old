@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.description = s.summary
   s.required_ruby_version = '>= 2.1.0'
 
-  s.authors 	   = ['Paul Callaghan, dgra']
+  s.authors = ['Paul Callaghan, dgra']
   s.email        = 'webdev@deseretbook.com'
   s.license      = 'BSD-3'
 
