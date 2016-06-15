@@ -4,12 +4,12 @@ require 'solidus_reviews/engine'
 require 'solidus_reviews/version'
 require 'coffee_script'
 
-module Solidus
+module Spree
   module Reviews
     module_function
 
     def config(*)
-      yield(Solidus::Reviews::Config)
+      yield(Spree::Reviews::Config)
     end
   end
 end
