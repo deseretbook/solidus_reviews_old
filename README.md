@@ -1,6 +1,6 @@
 # Reviews
 
-[![CircleCI](https://circleci.com/gh/deseretbook/solidus_reviews.svg?style=svg)](https://circleci.com/gh/deseretbook/solidus_reviews)
+[![CircleCI](https://circleci.com/gh/deseretbook/solidus_reviews.svg?style=svg&circle-token=2d3444074a953ca22dd742af7e12d497b85b184a)](https://circleci.com/gh/deseretbook/solidus_reviews)
 
 Straightforward review/rating functionality.
 
