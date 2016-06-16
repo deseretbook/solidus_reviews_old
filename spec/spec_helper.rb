@@ -27,6 +27,10 @@ RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.syntax = :expect
   end
+
+  config.before :each do
+    Spree::ReviewSetting.new.reset
+  end
 end
 
-Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |file| require file }
+Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each {|file| require file }

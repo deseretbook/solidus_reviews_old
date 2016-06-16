@@ -43,8 +43,6 @@
   </div>
 <% end %>
 
-<%= render 'spree/admin/shared/index_table_options', collection: @reviews %>
-
 <% if @reviews.any? %>
 	<table class="table" id="listing_reviews">
 		<thead>
@@ -81,5 +79,3 @@
 		<%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/review')) %>
 	</div>
 <% end %>
-
-<%= render 'spree/admin/shared/index_table_options', collection: @reviews %>
