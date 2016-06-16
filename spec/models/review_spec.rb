@@ -68,7 +68,7 @@ RSpec.describe Spree::Review, type: :model do
       let!(:review_1) { create(:review, created_at: 10.days.ago) }
       let!(:review_2) { create(:review, created_at: 2.days.ago) }
       let!(:review_3) { create(:review, created_at: 5.days.ago) }
-      let!(:review_4) { create(:review, created_at: 1.days.ago) }
+      let!(:review_4) { create(:review, created_at: 1.day.ago) }
 
       before do
         reset_spree_preferences
@@ -105,7 +105,7 @@ RSpec.describe Spree::Review, type: :model do
       let!(:approved_review_3) { create(:review, approved: true, created_at: 5.days.ago) }
 
       let!(:unapproved_review_1) { create(:review, approved: false, created_at: 7.days.ago) }
-      let!(:unapproved_review_2) { create(:review, approved: false, created_at: 1.days.ago) }
+      let!(:unapproved_review_2) { create(:review, approved: false, created_at: 1.day.ago) }
 
       it 'properly runs approved and unapproved queries' do
         expected = [

@@ -1,6 +1,6 @@
 # Reviews
 
-#TODO Add CIRCLE
+[![CircleCI](https://circleci.com/gh/deseretbook/solidus_reviews.svg?style=svg)](https://circleci.com/gh/deseretbook/solidus_reviews)
 
 Straightforward review/rating functionality.
 
