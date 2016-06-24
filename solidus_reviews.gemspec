@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'solidus_core', [">= 1.0.0", "< 2"]
+  s.add_dependency 'deface'
 
   s.add_development_dependency 'ffaker'
   s.add_development_dependency 'capybara'
