@@ -1,6 +1,6 @@
 # Add access to reviews/ratings to the product model
 Spree::Product.class_eval do
-  has_many :reviews
+  include Spree::Reviewable
 
   def stars
     avg_rating.try(:round) || 0
