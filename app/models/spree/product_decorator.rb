@@ -8,7 +8,7 @@ Spree::Product.class_eval do
 
   def recalculate_rating
     self[:reviews_count] = reviews.reload.approved.count
-    if reviews_count > 0
+    if reviews_count.positive?
       self[:avg_rating] = reviews.approved.sum(:rating).to_f / reviews_count
     else
       self[:avg_rating] = 0
