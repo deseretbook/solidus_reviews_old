@@ -1,6 +1,6 @@
 module Spree::ReviewsHelper
   def star(the_class)
-    content_tag(:span, ' &#10030; '.html_safe, class: the_class)
+    content_tag(:span, " \u272e ", class: the_class)
   end
 
   def mk_stars(m)

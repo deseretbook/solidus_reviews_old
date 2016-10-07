@@ -1,7 +1,7 @@
 RSpec.describe Spree::ReviewsHelper, type: :helper do
   context 'star' do
     specify do
-      expect(star('a_class')).to eq '<span class="a_class"> &#10030; </span>'
+      expect(star('a_class')).to eq "<span class=\"a_class\"> \u272e </span>"
     end
   end
 
