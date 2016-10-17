@@ -8,9 +8,9 @@ module SolidusReviews
   end
 
   module VERSION
-    MAJOR = 0
-    MINOR = 0
-    TINY  = 1
+    MAJOR = 1
+    MINOR = 4
+    TINY  = 0
 
     STRING = [MAJOR, MINOR, TINY].compact.join('.')
   end
