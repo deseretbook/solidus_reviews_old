@@ -32,7 +32,7 @@ RSpec.describe Spree::FeedbackReviewsController, type: :controller do
             feedback_review: {
               comment: comment,
               rating: rating,
-            }
+            },
           }
         )
         expect(response.status).to be(200)
