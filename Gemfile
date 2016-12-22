@@ -9,6 +9,7 @@ group :development, :test do
   gem 'byebug'
   gem 'pry-byebug'
   gem 'rubocop', require: false # For code consistency
+  gem 'rails-controller-testing'
 end
 
 group :development do

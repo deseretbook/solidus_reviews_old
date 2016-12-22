@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = SolidusReviews.version
   s.summary     = 'Basic review and ratings facility for Spree'
   s.description = s.summary
-  s.required_ruby_version = '>= 2.1.0'
+  s.required_ruby_version = '>= 2.3.1'
 
   s.authors = ['Paul Callaghan, dgra']
   s.email        = 'webdev@deseretbook.com'
