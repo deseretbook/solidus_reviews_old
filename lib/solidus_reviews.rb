@@ -1,7 +1,7 @@
-require 'sass/rails'
 require 'solidus_core'
 require 'solidus_reviews/engine'
 require 'solidus_reviews/version'
+require 'sass/rails'
 require 'coffee_script'
 
 module Spree

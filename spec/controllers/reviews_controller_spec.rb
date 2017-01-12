@@ -17,7 +17,7 @@ RSpec.describe Spree::ReviewsController, type: :controller do
   context '#index' do
     context 'for a product that does not exist' do
       it 'responds with a 404' do
-        get :index, product_id: 'not_real'
+        get :index, params: { product_id: 'not_real' }
         expect(response.status).to be(404)
       end
     end
@@ -25,10 +25,10 @@ RSpec.describe Spree::ReviewsController, type: :controller do
     context 'for a valid product' do
       it 'lists approved reviews' do
         approved_reviews = [
-          create(:review, :approved, product: product),
-          create(:review, :approved, product: product),
+          create(:review, :approved, product: product ),
+          create(:review, :approved, product: product ),
         ]
-        get :index, product_id: product.slug
+        get :index, params: { product_id: product.slug }
         expect(assigns[:approved_reviews]).to match_array(approved_reviews)
       end
     end
@@ -37,7 +37,7 @@ RSpec.describe Spree::ReviewsController, type: :controller do
   context '#new' do
     context 'for a product that does not exist' do
       it 'responds with a 404' do
-        get :new, product_id: 'not_real'
+        get :new, params: { product_id: 'not_real' }
         expect(response.status).to be(404)
       end
     end
@@ -45,13 +45,13 @@ RSpec.describe Spree::ReviewsController, type: :controller do
     it 'fail if the user is not authorized to create a review' do
       allow(controller).to receive(:authorize!) { raise }
       expect {
-        post :new, product_id: product.slug
+        post :new, params: { product_id: product.slug }
         expect(response.body).to eq('ryanbig')
       }.to raise_error
     end
 
     it 'renders the new template' do
-      get :new, product_id: product.slug
+      get :new, params: { product_id: product.slug }
       expect(response.status).to be(200)
       expect(response).to render_template(:new)
     end
@@ -64,47 +64,46 @@ RSpec.describe Spree::ReviewsController, type: :controller do
 
     context 'for a product that does not exist' do
       it 'responds with a 404' do
-        post :create, product_id: 'not_real'
+        post :create, params: { product_id: 'not_real' }
         expect(response.status).to be(404)
       end
     end
 
     it 'creates a new review' do
       expect {
-        post :create, review_params
+        post :create, params: review_params
       }.to change(Spree::Review, :count).by(1)
     end
 
     it 'sets the ip-address of the remote' do
-      allow(request).to receive(:remote_ip).and_return('127.0.0.1')
-      post :create, review_params
-      expect(assigns[:review].ip_address).to eq '127.0.0.1'
+      post :create, params: review_params
+      expect(assigns[:review].ip_address).to match(/\d{0,3}\.\d{0,3}\.\d{0,3}\.\d{0,3}/)
     end
 
     it 'fails if the user is not authorized to create a review' do
       allow(controller).to receive(:authorize!) { raise }
       expect {
-        post :create, review_params
+        post :create, params: review_params
       }.to raise_error
     end
 
     it 'flashes the notice' do
-      post :create, review_params
+      post :create, params: review_params
       expect(flash[:notice]).to eq Spree.t(:review_successfully_submitted)
     end
 
     it 'redirects to product page' do
-      post :create, review_params
+      post :create, params: review_params
       expect(response).to redirect_to spree.product_path(product)
     end
 
     it 'removes all non-numbers from ratings param' do
-      post :create, review_params
+      post :create, params: review_params
       expect(controller.params[:review][:rating]).to eq('3')
     end
 
     it 'sets the current spree user as reviews user' do
-      post :create, review_params
+      post :create, params: review_params
       review_params[:review][:user_id] = user.id
       assigns[:review][:user_id] = user.id
       expect(assigns[:review][:user_id]).to eq(user.id)
@@ -113,14 +112,14 @@ RSpec.describe Spree::ReviewsController, type: :controller do
     context 'with invalid params' do
       it 'renders new when review.save fails' do
         allow_any_instance_of(Spree::Review).to receive(:save).and_return(false)
-        post :create, review_params
+        post :create, params: review_params
         expect(response).to render_template :new
       end
 
       it 'does not create a review' do
         expect(Spree::Review.count).to be(0)
         review_params[:review][:rating] = 'not_a_number'
-        post :create, review_params
+        post :create, params: review_params
         expect(Spree::Review.count).to be(0)
       end
     end
@@ -129,7 +128,7 @@ RSpec.describe Spree::ReviewsController, type: :controller do
     context 'when config requires locale tracking:' do
       it 'sets the locale' do
         Spree::Reviews::Config.preferred_track_locale = true
-        post :create, review_params
+        post :create, params: review_params
         expect(assigns[:review].locale).to eq I18n.locale.to_s
       end
     end

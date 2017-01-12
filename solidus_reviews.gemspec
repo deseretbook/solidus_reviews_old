@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = SolidusReviews.version
   s.summary     = 'Basic review and ratings facility for Spree'
   s.description = s.summary
-  s.required_ruby_version = '>= 2.1.0'
+  s.required_ruby_version = '>= 2.3.1'
 
   s.authors = ['Paul Callaghan, dgra']
   s.email        = 'webdev@deseretbook.com'
@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'solidus_core', [">= 1.0.0", "< 2"]
+  s.add_dependency 'solidus_core', [">= 1.0.0", "< 3"]
   s.add_dependency 'deface'
 
   s.add_development_dependency 'ffaker'
