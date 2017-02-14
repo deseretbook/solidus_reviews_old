@@ -1,0 +1,4 @@
+<!-- insert_bottom "[data-hook='admin_product_sub_tabs']" -->
+<% if can? :admin, Spree::Review %>
+  <%= tab :reviews, url: spree.admin_reviews_path %>
+<% end %>
