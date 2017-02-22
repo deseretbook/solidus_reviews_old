@@ -7,8 +7,8 @@ class Spree::Admin::ReviewsController < Spree::Admin::ResourceController
 
   def approve
     review = Spree::Review.find(params[:id])
-    if review.update_attribute(:approved, true)
-      flash[:notice] = Spree.t(:info_approve_review)
+    if review.update(approved: true)
+      flash[:success] = Spree.t(:info_approve_review)
     else
       flash[:error] = Spree.t(:error_approve_review)
     end
