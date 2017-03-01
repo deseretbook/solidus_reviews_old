@@ -22,14 +22,14 @@ RSpec.describe Spree::Admin::ReviewsController, type: :controller do
 
   context '#approve' do
     it 'shows notice message when approved' do
-      review.update_attribute(:approved, true)
+      review.update(approved: true)
       get :approve, params: { id: review.id }
       expect(response).to redirect_to spree.admin_reviews_path
       expect(flash[:notice]).to eq Spree.t(:info_approve_review)
     end
 
     it 'shows error message when not approved' do
-      allow_any_instance_of(Spree::Review).to receive(:update_attribute).and_return(false)
+      allow_any_instance_of(Spree::Review).to receive(:update).and_return(false)
       get :approve, params: { id: review.id }
       expect(flash[:error]).to eq Spree.t(:error_approve_review)
     end
