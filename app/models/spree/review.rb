@@ -16,13 +16,13 @@ class Spree::Review < ActiveRecord::Base
 
   default_scope { order('spree_reviews.created_at DESC') }
 
-  scope :localized, ->(lc) { where('spree_reviews.locale = ?', lc) }
-  scope :most_recent_first, -> { order('spree_reviews.created_at DESC') }
-  scope :oldest_first, -> { reorder('spree_reviews.created_at ASC') }
-  scope :preview, -> { limit(Spree::Reviews::Config[:preview_size]).oldest_first }
-  scope :approved, -> { where(approved: true) }
-  scope :not_approved, -> { where(approved: false) }
-  scope :default_approval_filter, -> { Spree::Reviews::Config[:include_unapproved_reviews] ? all : approved }
+  scope :localized, (->(lc) { where('spree_reviews.locale = ?', lc) })
+  scope :most_recent_first, (-> { order('spree_reviews.created_at DESC') })
+  scope :oldest_first, (-> { reorder('spree_reviews.created_at ASC') })
+  scope :preview, (-> { limit(Spree::Reviews::Config[:preview_size]).oldest_first })
+  scope :approved, (-> { where(approved: true) })
+  scope :not_approved, (-> { where(approved: false) })
+  scope :default_approval_filter, (-> { Spree::Reviews::Config[:include_unapproved_reviews] ? all : approved })
 
   def feedback_stars
     return 0 if feedback_reviews.size <= 0

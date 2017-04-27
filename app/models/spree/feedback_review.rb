@@ -11,6 +11,6 @@ class Spree::FeedbackReview < ActiveRecord::Base
   }
 
   default_scope { most_recent_first }
-  scope :most_recent_first, -> { order('spree_feedback_reviews.created_at DESC') }
-  scope :localized, ->(lc) { where('spree_feedback_reviews.locale = ?', lc) }
+  scope :most_recent_first, (-> { order('spree_feedback_reviews.created_at DESC') })
+  scope :localized, (->(lc) { where('spree_feedback_reviews.locale = ?', lc) })
 end

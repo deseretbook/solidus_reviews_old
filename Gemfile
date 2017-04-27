@@ -18,7 +18,6 @@ group :development, :test do
   # Call `binding.pry` anywhere in the code to stop execution and get a debugger console.
   gem 'byebug'
   gem 'pry-byebug'
-  gem 'rails-controller-testing'
   gem 'rubocop', require: false # For code consistency
 end
 

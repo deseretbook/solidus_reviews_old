@@ -26,6 +26,6 @@ class Spree::Admin::ReviewsController < Spree::Admin::ResourceController
   def collection
     params[:q] ||= {}
     @search = Spree::Review.ransack(params[:q])
-    @collection = @search.result.includes([:product, :user, :feedback_reviews]).page(params[:page]).per(params[:per_page])
+    @collection = @search.result.includes(%i[product user feedback_reviews]).page(params[:page]).per(params[:per_page])
   end
 end
