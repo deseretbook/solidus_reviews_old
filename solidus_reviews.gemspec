@@ -6,7 +6,7 @@ require 'solidus_reviews/version'
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'solidus_reviews'
-  s.version     = SolidusReviews.version
+  s.version     = '2.1'
   s.summary     = 'Basic review and ratings facility for Spree'
   s.description = s.summary
   s.required_ruby_version = '>= 2.3.1'
@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'solidus_core', [">= 1.0.0", "< 3"]
+  s.add_dependency "solidus", ['>= 1.0', '< 3']
   s.add_dependency 'deface'
 
   s.add_development_dependency 'ffaker'

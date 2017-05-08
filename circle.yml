@@ -2,9 +2,11 @@ machine:
   ruby:
     version: 2.3.1
 
-test:
-  pre:
+database:
+  override:
     - bundle exec rake test_app
+
+test:
   override:
     - bundle exec rubocop -R
     - bundle exec rspec
