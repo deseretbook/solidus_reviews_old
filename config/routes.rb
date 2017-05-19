@@ -14,4 +14,11 @@ Spree::Core::Engine.routes.draw do
     end
   end
   post '/reviews/:review_id/feedback(.:format)' => 'feedback_reviews#create', as: :feedback_reviews
+
+  namespace :api do
+    resources :products do
+      resources :reviews, only: [:index, :create, :update, :destroy] do
+      end
+    end
+  end
 end
