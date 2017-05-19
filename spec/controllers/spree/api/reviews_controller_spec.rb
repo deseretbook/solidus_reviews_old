@@ -40,15 +40,15 @@ describe Spree::Api::ReviewsController, type: :controller do
       {
         "user_id": "1055037",
         "review": {
-  	      "rating": "3 stars",
-  	      "title": "My title 2",
-  	      "name": "dgr",
-  	      "review": "My review updated"
-        }
+          "rating": "3 stars",
+          "title": "My title 2",
+          "name": "dgr",
+          "review": "My review updated",
+        },
       }
     end
     subject do
-      params = {product_id: product, token: user.spree_api_key}.merge(review_params)
+      params = { product_id: product, token: user.spree_api_key }.merge(review_params)
       api_get :create, params
       JSON.parse(response.body)
     end
@@ -72,16 +72,13 @@ describe Spree::Api::ReviewsController, type: :controller do
         expect(subject["data"]["review"]["name"]).to eq(review_params[:review][:name])
         expect(subject["data"]["review"]["review"]).to eq(review_params[:review][:review])
         expect(subject["data"]["review"]["title"]).to eq(review_params[:review][:title])
-
       end
     end
   end
 
   describe '#update' do
-
   end
 
   describe '#destroy' do
-
   end
 end

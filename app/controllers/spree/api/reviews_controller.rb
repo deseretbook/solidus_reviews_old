@@ -96,8 +96,8 @@ module Spree
           {
             status: 'success',
             data: {
-              review: @review
-            }
+              review: @review,
+            },
           },
           status: status
       end
@@ -107,8 +107,8 @@ module Spree
           {
             status: 'fail',
             data: {
-              title: message || @review.errors.full_messages.to_sentence
-            }
+              title: message || @review.errors.full_messages.to_sentence,
+            },
           },
           status: status
       end
