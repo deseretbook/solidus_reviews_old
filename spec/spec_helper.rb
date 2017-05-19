@@ -13,6 +13,7 @@ end
 require 'rspec/rails'
 require 'ffaker'
 require 'pry'
+require 'support/controller_hacks'
 
 RSpec.configure do |config|
   config.fail_fast = false
