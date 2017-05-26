@@ -47,7 +47,7 @@ RSpec.describe Spree::ReviewsController, type: :controller do
       expect {
         post :new, params: { product_id: product.slug }
         expect(response.body).to eq('ryanbig')
-      }.to raise_error
+      }.to raise_error(RuntimeError)
     end
 
     it 'renders the new template' do
@@ -84,7 +84,7 @@ RSpec.describe Spree::ReviewsController, type: :controller do
       allow(controller).to receive(:authorize!) { raise }
       expect {
         post :create, params: review_params
-      }.to raise_error
+      }.to raise_error(RuntimeError)
     end
 
     it 'flashes the notice' do

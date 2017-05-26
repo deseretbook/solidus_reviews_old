@@ -62,7 +62,7 @@ RSpec.describe Spree::FeedbackReviewsController, type: :controller do
       allow(controller).to receive(:authorize!) { raise }
       expect {
         post :create, params: valid_attributes
-      }.to raise_error
+      }.to raise_error(RuntimeError)
     end
 
     it 'removes all non-numbers from ratings parameter' do
@@ -73,7 +73,7 @@ RSpec.describe Spree::FeedbackReviewsController, type: :controller do
     it 'does not create feedback-review if review doesnt exist' do
       expect {
         post :create, params: valid_attributes.merge!(review_id: nil)
-      }.to raise_error
+      }.to raise_error(ActionController::UrlGenerationError)
     end
   end
 end

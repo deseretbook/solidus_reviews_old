@@ -6,7 +6,7 @@ require 'solidus_reviews/version'
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'solidus_reviews'
-  s.version     = '2.1'
+  s.version     = '2.2'
   s.summary     = 'Basic review and ratings facility for Spree'
   s.description = s.summary
   s.required_ruby_version = '>= 2.3.1'
